@@ -1,0 +1,19 @@
+{
+  "cache_seconds": 3600,
+  "machinetypes":
+  [
+   {
+     "suffix": "vm",
+     "target_share": 0,
+     "accounting_fqan": "/iris.ac.uk/Role=NULL/Capability=NULL",
+     "backoff_seconds": 600,
+     "fizzle_seconds": 600,
+     "heartbeat_file": "heartbeat",
+     "heartbeat_seconds": 700,
+     "machine_model": "vm-raw",
+     "min_wallclock_seconds": 31536000,
+     "max_wallclock_seconds": 31536000,
+     "user_data": "https://repo.iris.ac.uk/squid-vm/user_data_vm"
+   }
+  ]
+}
