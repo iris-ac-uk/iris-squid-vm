@@ -1,10 +1,10 @@
 From nobody Wed Nov 18 09:59:29 2015
 Comments:
  #
- # Runs on Squid for CernVM-FS on CentOS 6 in a VM.
+ # Runs on Squid for CernVM-FS on CentOS 7 in a VM.
  # Start a VM with a suitable image and this as the user-data file.
  #
- # Andrew.McNab@cern.ch January 2017
+ # Andrew.McNab@cern.ch January 2017, September 2019
  #
 Content-Type: multipart/mixed; boundary="===============3141592653589793238=="
 MIME-Version: 1.0
