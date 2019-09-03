@@ -4,7 +4,7 @@
   [
    {
      "suffix": "vm",
-     "target_share": 0,
+     "target_share": 1,
      "accounting_fqan": "/iris.ac.uk/Role=NULL/Capability=NULL",
      "backoff_seconds": 600,
      "fizzle_seconds": 600,
