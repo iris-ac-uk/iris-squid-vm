@@ -1,0 +1,38 @@
+iris-squid-vm provides a Vacuum model VM definition which runs a Squid
+HTTP cache suitable for use with VMs started by Vcycle which use CernVM-FS. 
+
+A vacuum pipe with this definition is provided at 
+    https://repo.iris.ac.uk/squid-vm/iris-squid.pipe
+
+Since CernVM itself relies on CernVM-FS, it is not suitable as the image
+for the Squid VMs. Instead a generic CentOS 7 image should be used in
+the vacuum_pipe section of the Vcycle configuration:
+
+[vacuum_pipe SPACENAME squid]
+root_image = image:CentOS7-1907
+backoff_seconds = 3600
+vacuum_pipe_url = https://repo.iris.ac.uk/squid-vm/iris-squid.pipe
+https_x509dn = /CN=example
+user_data_file_hostcert = hostcert.pem
+user_data_file_hostkey = hostkey.pem
+flavor_names = ONEorTWOprocessorFLAVOR
+processors_limit = 2
+target_share = 1
+
+If squid is the pipe name then the VMs will be created with machinetype
+squid-vm. This machinetype can be used in other vacuum pipe and machinetype
+sections with the option:
+
+cvmfs_proxy_machinetype = squid-vm
+
+This tells Vcycle to give the list of currently running Squid VMs to the
+worker VMs created by the other sections. See the vcycle.conf for more
+details.
+
+The Squid VMs send a heartbeat to Vcycle every 5 minutes if the Squid
+server passes a basic functionality test (fetching http://cern.ch). Squid VMs
+which are sending heartbeats comprise the list of VMs whose IP addresses
+will be given to worker VMs for use with CernVM-FS.
+
+
+
